@@ -95,6 +95,18 @@ counters.forEach(c => cObs.observe(c));
 // ── GAME 1: SORT ──
 let dragItem = null;
 
+function placeDragItemInZone(item, zone) {
+  const placed = document.createElement('span');
+  placed.className = 'placed-item';
+  placed.textContent = item.textContent;
+  placed.dataset.id = item.id;
+  placed.dataset.cat = item.dataset.cat;
+  zone.appendChild(placed);
+  item.classList.add('placed');
+  // Remove inline opacity so the .placed class can hide the source item.
+  item.style.opacity = '';
+}
+
 document.querySelectorAll('.drag-item').forEach(item => {
   // ── Desktop drag ──
   item.addEventListener('dragstart', e => {
@@ -103,7 +115,11 @@ document.querySelectorAll('.drag-item').forEach(item => {
     setTimeout(() => item.style.opacity = '0.4', 0);
   });
   item.addEventListener('dragend', () => {
-    item.style.opacity = '1';
+    if (!item.classList.contains('placed')) {
+      item.style.opacity = '1';
+    } else {
+      item.style.opacity = '';
+    }
     dragItem = null;
   });
 
@@ -144,7 +160,9 @@ document.querySelectorAll('.drag-item').forEach(item => {
   item.addEventListener('touchend', e => {
     const ghost = document.getElementById('drag-ghost');
     if (ghost) ghost.remove();
-    if (dragItem) dragItem.style.opacity = '1';
+    if (dragItem && !dragItem.classList.contains('placed')) {
+      dragItem.style.opacity = '1';
+    }
     document.querySelectorAll('.drop-zone').forEach(z => z.classList.remove('dragover'));
 
     const touch = e.changedTouches[0];
@@ -152,13 +170,7 @@ document.querySelectorAll('.drag-item').forEach(item => {
     const below = document.elementFromPoint(touch.clientX, touch.clientY);
     const zone = below && below.closest('.drop-zone');
     if (zone && dragItem) {
-      const placed = document.createElement('span');
-      placed.className = 'placed-item';
-      placed.textContent = dragItem.textContent;
-      placed.dataset.id = dragItem.id;
-      placed.dataset.cat = dragItem.dataset.cat;
-      zone.appendChild(placed);
-      dragItem.classList.add('placed');
+      placeDragItemInZone(dragItem, zone);
     }
     dragItem = null;
   });
@@ -174,13 +186,7 @@ document.querySelectorAll('.drop-zone').forEach(zone => {
     e.preventDefault();
     zone.classList.remove('dragover');
     if (dragItem) {
-      const placed = document.createElement('span');
-      placed.className = 'placed-item';
-      placed.textContent = dragItem.textContent;
-      placed.dataset.id = dragItem.id;
-      placed.dataset.cat = dragItem.dataset.cat;
-      zone.appendChild(placed);
-      dragItem.classList.add('placed');
+      placeDragItemInZone(dragItem, zone);
     }
   });
 });
