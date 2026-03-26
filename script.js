@@ -3,33 +3,38 @@ const cur = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
 
-document.addEventListener('mousemove', e => {
-  mx = e.clientX;
-  my = e.clientY;
-  cur.style.left = mx + 'px';
-  cur.style.top = my + 'px';
-});
+// Only activate custom cursor on non-touch devices
+const isTouch = window.matchMedia('(hover: none)').matches;
 
-(function animRing() {
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) * 0.12;
-  ring.style.left = rx + 'px';
-  ring.style.top = ry + 'px';
-  requestAnimationFrame(animRing);
-})();
+if (!isTouch) {
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    cur.style.left = mx + 'px';
+    cur.style.top = my + 'px';
+  });
 
-document.querySelectorAll('a, button, .drag-item, .quiz-opt, .mem-card, .game-btn').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cur.style.transform = 'translate(-50%,-50%) scale(1.8)';
-    ring.style.transform = 'translate(-50%,-50%) scale(1.4)';
-    ring.style.borderColor = 'var(--accent)';
+  (function animRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animRing);
+  })();
+
+  document.querySelectorAll('a, button, .drag-item, .quiz-opt, .mem-card, .game-btn').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cur.style.transform = 'translate(-50%,-50%) scale(1.8)';
+      ring.style.transform = 'translate(-50%,-50%) scale(1.4)';
+      ring.style.borderColor = 'var(--accent)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cur.style.transform = 'translate(-50%,-50%) scale(1)';
+      ring.style.transform = 'translate(-50%,-50%) scale(1)';
+      ring.style.borderColor = 'var(--wave)';
+    });
   });
-  el.addEventListener('mouseleave', () => {
-    cur.style.transform = 'translate(-50%,-50%) scale(1)';
-    ring.style.transform = 'translate(-50%,-50%) scale(1)';
-    ring.style.borderColor = 'var(--wave)';
-  });
-});
+} // end !isTouch
 
 // ── BUBBLES ──
 const bubblesCont = document.getElementById('bubbles');
@@ -91,6 +96,7 @@ counters.forEach(c => cObs.observe(c));
 let dragItem = null;
 
 document.querySelectorAll('.drag-item').forEach(item => {
+  // Desktop drag
   item.addEventListener('dragstart', e => {
     dragItem = item;
     e.dataTransfer.effectAllowed = 'move';
@@ -98,6 +104,28 @@ document.querySelectorAll('.drag-item').forEach(item => {
   });
   item.addEventListener('dragend', () => {
     item.style.opacity = '1';
+    dragItem = null;
+  });
+
+  // Mobile touch
+  item.addEventListener('touchstart', e => {
+    dragItem = item;
+    item.style.opacity = '0.5';
+  }, { passive: true });
+  item.addEventListener('touchend', e => {
+    item.style.opacity = '1';
+    const touch = e.changedTouches[0];
+    const target = document.elementFromPoint(touch.clientX, touch.clientY);
+    const zone = target && target.closest('.drop-zone');
+    if (zone && dragItem) {
+      const placed = document.createElement('span');
+      placed.className = 'placed-item';
+      placed.textContent = dragItem.textContent;
+      placed.dataset.id = dragItem.id;
+      placed.dataset.cat = dragItem.dataset.cat;
+      zone.appendChild(placed);
+      dragItem.classList.add('placed');
+    }
     dragItem = null;
   });
 });

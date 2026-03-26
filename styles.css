@@ -611,11 +611,102 @@ footer {
 }
 
 /* ── RESPONSIVE ── */
+
+/* Touch devices: restore default cursor and hide custom cursor */
+@media (hover: none) {
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+
+/* ── Tablet · ≤ 900px ── */
 @media (max-width: 900px) {
+  /* NAV */
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+
+  /* HERO */
+  #hero { padding: 7rem 2rem 4rem; }
+  .hero-drop { display: none; }
+
+  /* STATS */
+  #stats { padding: 3.5rem 2rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-card:nth-child(2n) { border-right: none; }
+  .stat-card:nth-child(odd) { border-right: 1px solid rgba(0,180,216,0.12); }
+
+  /* SECTIONS */
+  section { padding: 4.5rem 2rem; }
+
+  /* CRISIS */
+  .crisis-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  /* GAMES */
+  .games-grid { grid-template-columns: 1fr; }
+
+  /* ACTIONS */
+  .actions-intro { grid-template-columns: 1fr; gap: 1.5rem; }
+  .actions-list { grid-template-columns: 1fr; }
+
+  /* FOOTER */
+  footer { padding: 2.5rem 2rem; flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+
+  /* TEAM */
   .team-grid { grid-template-columns: 1fr 1fr; }
   .docente-card { flex-direction: column; text-align: center; max-width: 100%; }
   #integrantes { padding: 4rem 1.5rem; }
 }
+
+/* ── Mobile · ≤ 600px ── */
 @media (max-width: 600px) {
+  /* NAV */
+  nav { padding: 0.9rem 1rem; }
+  .nav-logo { font-size: 1rem; }
+  .nav-links { gap: 0.9rem; }
+  .nav-links a { font-size: 0.72rem; letter-spacing: 0.05em; }
+
+  /* HERO */
+  #hero { padding: 5.5rem 1.2rem 3rem; }
+  .hero-eyebrow { margin-bottom: 1.2rem; }
+  .hero-desc { font-size: 0.95rem; max-width: 100%; }
+  .hero-cta { padding: 0.85rem 1.5rem; font-size: 0.82rem; }
+
+  /* STATS */
+  #stats { padding: 2.5rem 1.2rem; }
+  .stat-num { font-size: 2.6rem; }
+  .stat-card { padding: 1.8rem 1rem; }
+
+  /* SECTIONS */
+  section { padding: 3.5rem 1.2rem; }
+  .section-desc { margin-bottom: 2rem; }
+
+  /* CRISIS CARDS */
+  .crisis-cards { grid-template-columns: 1fr; }
+
+  /* GAMES - inner game body */
+  .game-body { padding: 1.2rem; }
+
+  /* ACTIONS */
+  .actions-intro > div:last-child { display: none; }
+
+  /* FOOTER */
+  footer { padding: 2rem 1.2rem; }
+
+  /* TEAM */
   .team-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Small mobile · ≤ 420px ── */
+@media (max-width: 420px) {
+  /* NAV: stack logo above links */
+  nav { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 0.8rem 1rem; }
+  .nav-links { gap: 0.7rem; flex-wrap: wrap; }
+
+  /* STATS: single column */
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-card { border-right: none; border-bottom: 1px solid rgba(0,180,216,0.12); }
+  .stat-card:last-child { border-bottom: none; }
+  .stat-card:nth-child(odd) { border-right: none; }
+
+  /* MEMORY GRID: tighter gap */
+  .memory-game .mem-grid { gap: 0.3rem; }
 }
