@@ -96,7 +96,7 @@ counters.forEach(c => cObs.observe(c));
 let dragItem = null;
 
 document.querySelectorAll('.drag-item').forEach(item => {
-  // Desktop drag
+  // ── Desktop drag ──
   item.addEventListener('dragstart', e => {
     dragItem = item;
     e.dataTransfer.effectAllowed = 'move';
@@ -107,16 +107,50 @@ document.querySelectorAll('.drag-item').forEach(item => {
     dragItem = null;
   });
 
-  // Mobile touch
+  // ── Mobile touch ──
   item.addEventListener('touchstart', e => {
     dragItem = item;
     item.style.opacity = '0.5';
+    // Create ghost that follows the finger
+    const ghost = item.cloneNode(true);
+    ghost.id = 'drag-ghost';
+    const rect = item.getBoundingClientRect();
+    ghost.style.cssText = `
+      position: fixed; pointer-events: none; z-index: 9999;
+      opacity: 0.9; transform: scale(1.08);
+      left: ${rect.left}px; top: ${rect.top}px;
+      width: ${rect.width}px; transition: none; margin: 0;
+    `;
+    document.body.appendChild(ghost);
   }, { passive: true });
+
+  item.addEventListener('touchmove', e => {
+    e.preventDefault(); // block scroll while dragging
+    const touch = e.touches[0];
+    const ghost = document.getElementById('drag-ghost');
+    if (ghost) {
+      ghost.style.left = (touch.clientX - ghost.offsetWidth / 2) + 'px';
+      ghost.style.top  = (touch.clientY - ghost.offsetHeight / 2) + 'px';
+    }
+    // Highlight the zone currently under the finger
+    ghost && (ghost.style.display = 'none');
+    const below = document.elementFromPoint(touch.clientX, touch.clientY);
+    ghost && (ghost.style.display = '');
+    document.querySelectorAll('.drop-zone').forEach(z => z.classList.remove('dragover'));
+    const zone = below && below.closest('.drop-zone');
+    if (zone) zone.classList.add('dragover');
+  }, { passive: false });
+
   item.addEventListener('touchend', e => {
-    item.style.opacity = '1';
+    const ghost = document.getElementById('drag-ghost');
+    if (ghost) ghost.remove();
+    if (dragItem) dragItem.style.opacity = '1';
+    document.querySelectorAll('.drop-zone').forEach(z => z.classList.remove('dragover'));
+
     const touch = e.changedTouches[0];
-    const target = document.elementFromPoint(touch.clientX, touch.clientY);
-    const zone = target && target.closest('.drop-zone');
+    // elementFromPoint can't see through the ghost – it's already removed, so this is clean
+    const below = document.elementFromPoint(touch.clientX, touch.clientY);
+    const zone = below && below.closest('.drop-zone');
     if (zone && dragItem) {
       const placed = document.createElement('span');
       placed.className = 'placed-item';

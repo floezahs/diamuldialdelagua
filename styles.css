@@ -352,6 +352,18 @@ section { padding: 7rem 4rem; }
 }
 .drag-item:active { cursor: grabbing; transform: scale(0.97); }
 .drag-item.placed { opacity: 0; pointer-events: none; }
+
+/* Ghost element while touch-dragging */
+#drag-ghost {
+  background: rgba(0,180,216,0.25) !important;
+  border: 1.5px solid var(--wave) !important;
+  border-radius: 50px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.78rem; font-weight: 600; color: var(--foam);
+  font-family: 'DM Sans', sans-serif;
+  box-shadow: 0 4px 20px rgba(0,180,216,0.4);
+  white-space: nowrap;
+}
 .placed-item {
   padding: 0.3rem 0.7rem;
   background: rgba(0,180,216,0.2);
