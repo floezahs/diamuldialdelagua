@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Día Mundial del Agua · 22 de Marzo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Proyecto Final <span>Comunicación</span></div>
+  <ul class="nav-links">
+    <li><a href="#crisis">La crisis</a></li>
+    <li><a href="#juegos">Juega</a></li>
+    <li><a href="#acciones">Actúa</a></li>
+    <li><a href="#integrantes">Equipo</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="bubbles" id="bubbles"></div>
+
+  <svg class="hero-drop" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 0 C100 0 0 100 0 150 C0 200 45 240 100 240 C155 240 200 200 200 150 C200 100 100 0 100 0Z" fill="url(#dropGrad)"/>
+    <defs>
+      <radialGradient id="dropGrad" cx="40%" cy="35%" r="60%">
+        <stop offset="0%" stop-color="#00B4D8" stop-opacity="0.8"/>
+        <stop offset="100%" stop-color="#03045E" stop-opacity="0.2"/>
+      </radialGradient>
+    </defs>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">22 de Marzo</div>
+    <h1 class="hero-title">
+      Día Mundial<br><em>del Agua</em>
+    </h1>
+    <p class="hero-desc">
+      El agua conecta toda vida en este planeta. Hoy, miles de millones no tienen acceso a ella.
+      Conoce la crisis, aprende con juegos y toma acción.
+    </p>
+    <a href="#crisis" class="hero-cta ripple">
+      Explorar la crisis
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </div>
+
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-grid stagger">
+    <div class="stat-card">
+      <span class="stat-num" data-target="2200">0</span>
+      <span class="stat-unit">Millones</span>
+      <span class="stat-label">de personas sin agua potable segura</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num" data-target="3" data-suffix="%">0</span>
+      <span class="stat-unit">del total</span>
+      <span class="stat-label">del agua terrestre es dulce y accesible</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num" data-target="70" data-suffix="%">0</span>
+      <span class="stat-unit">Consumo</span>
+      <span class="stat-label">del agua dulce la usa la agricultura</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-num" data-target="2050">0</span>
+      <span class="stat-unit">Año crítico</span>
+      <span class="stat-label">la demanda superará la disponibilidad</span>
+    </div>
+  </div>
+</section>
+
+<!-- CRISIS -->
+<section id="crisis">
+  <div class="crisis-inner">
+    <div class="fade-up">
+      <div class="section-tag">La crisis global</div>
+      <h2 class="section-title">¿Por qué el agua<br>está en <em>peligro</em>?</h2>
+      <p class="section-desc">
+        La combinación de cambio climático, sobreexplotación y contaminación
+        amenaza el recurso más vital del planeta. No hay tiempo que perder.
+      </p>
+    </div>
+    <div class="crisis-cards stagger">
+      <div class="crisis-card">
+        <div class="crisis-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 3v18" stroke="#00B4D8" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M16 21a5 5 0 1 1 0 8 5 5 0 0 1 0-8z" fill="rgba(0,180,216,0.2)" stroke="#00B4D8" stroke-width="1.8"/>
+            <path d="M20 5h3M20 9h5M20 13h3" stroke="#00F5D4" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Cambio Climático</h3>
+        <p>Sequías prolongadas e inundaciones extremas alteran los ciclos hídricos globales.</p>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="14" width="24" height="14" rx="2" fill="rgba(0,180,216,0.15)" stroke="#00B4D8" stroke-width="1.8"/>
+            <rect x="11" y="8" width="10" height="8" rx="1" fill="rgba(0,180,216,0.1)" stroke="#00B4D8" stroke-width="1.5"/>
+            <path d="M8 28v-6M16 28v-8M24 28v-6" stroke="#00F5D4" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M6 11c2-2 4 0 6-2" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M14 8c1-2 3-1 4-3" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Contaminación</h3>
+        <p>Residuos industriales y agroquímicos degradan ríos, lagos y acuíferos subterráneos.</p>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 24c3-4 6-2 9-5s6-7 10-8" stroke="#00B4D8" stroke-width="2" stroke-linecap="round"/>
+            <path d="M16 11c0 0 2-5 6-5" stroke="#00B4D8" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="22" cy="6" r="3" fill="rgba(0,180,216,0.2)" stroke="#00B4D8" stroke-width="1.5"/>
+            <path d="M4 28h24" stroke="#00F5D4" stroke-width="2" stroke-linecap="round"/>
+            <path d="M7 24v4M13 22v6M19 22v6M25 24v4" stroke="#00F5D4" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Sobreexplotación</h3>
+        <p>El riego agrícola consume el 70% del agua dulce, agotando reservas no renovables.</p>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 4c0 0-8 7-8 14a8 8 0 0 0 16 0C24 11 16 4 16 4z" fill="rgba(0,180,216,0.15)" stroke="#00B4D8" stroke-width="1.8"/>
+            <path d="M16 14v8M13 17l3-3 3 3" stroke="#00F5D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 10c-1 2-2 4-2 8" stroke="rgba(0,180,216,0.4)" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Deforestación</h3>
+        <p>La pérdida de bosques reduce la recarga de acuíferos y altera el clima local.</p>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="12" stroke="#00B4D8" stroke-width="1.8" fill="rgba(0,180,216,0.08)"/>
+            <path d="M10 16h12M16 10v12" stroke="#00F5D4" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="16" cy="16" r="3" fill="rgba(0,180,216,0.3)" stroke="#00B4D8" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3>Desigualdad</h3>
+        <p>Las comunidades vulnerables son las primeras afectadas por la falta de acceso.</p>
+      </div>
+      <div class="crisis-card">
+        <div class="crisis-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 28L10 16l6 6 5-10 7 12" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M26 18l2-4h-4z" fill="#00F5D4"/>
+            <path d="M4 28h24" stroke="rgba(0,180,216,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Crecimiento urbano</h3>
+        <p>La urbanización sin planificación dispara la demanda y la contaminación de fuentes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAMES SECTION -->
+<section id="juegos">
+  <div class="games-header fade-up">
+    <div class="section-tag">Zona interactiva</div>
+    <h2 class="section-title">Aprende jugando 💧</h2>
+    <p class="section-desc" style="max-width:580px; margin:0 auto">
+      Pon a prueba tus conocimientos sobre el agua con estos tres mini-juegos educativos.
+    </p>
+  </div>
+
+  <div class="games-grid stagger">
+
+    <!-- GAME 1: Clasificar -->
+    <div class="game-card sort-game">
+      <div class="game-header">
+        <div class="game-icon" style="background:rgba(0,180,216,0.15)">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect x="2" y="2" width="10" height="10" rx="2" stroke="#00B4D8" stroke-width="1.8" fill="rgba(0,180,216,0.15)"/><rect x="14" y="2" width="10" height="10" rx="2" stroke="#00F5D4" stroke-width="1.8" fill="rgba(0,245,212,0.1)"/><rect x="2" y="14" width="10" height="10" rx="2" stroke="#00F5D4" stroke-width="1.8" fill="rgba(0,245,212,0.1)"/><rect x="14" y="14" width="10" height="10" rx="2" stroke="#00B4D8" stroke-width="1.8" fill="rgba(0,180,216,0.15)"/></svg>
+        </div>
+        <div>
+          <div class="game-name">Clasifica el Uso</div>
+          <div class="game-tag">Arrastra y suelta</div>
+        </div>
+      </div>
+      <div class="game-body">
+        <p style="font-size:0.8rem;color:rgba(202,240,248,0.55);margin-bottom:1rem">
+          Arrastra cada actividad a su categoría correcta según cuánta agua consume.
+        </p>
+        <div class="drag-items" id="sortItems">
+          <div class="drag-item" draggable="true" data-cat="alto" id="si1">Regar jardín</div>
+          <div class="drag-item" draggable="true" data-cat="bajo" id="si2">Cepillar dientes</div>
+          <div class="drag-item" draggable="true" data-cat="alto" id="si3">Lavar auto</div>
+          <div class="drag-item" draggable="true" data-cat="bajo" id="si4">Beber agua</div>
+          <div class="drag-item" draggable="true" data-cat="alto" id="si5">Piscina</div>
+          <div class="drag-item" draggable="true" data-cat="bajo" id="si6">Enjuague manos</div>
+        </div>
+        <div class="drop-zones">
+          <div class="drop-zone" id="zone-alto" data-cat="alto">
+            <div class="drop-zone-title"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="#FF6B6B" opacity="0.8"/></svg> Alto consumo</div>
+          </div>
+          <div class="drop-zone" id="zone-bajo" data-cat="bajo">
+            <div class="drop-zone-title"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" fill="#06D6A0" opacity="0.8"/></svg> Bajo consumo</div>
+          </div>
+        </div>
+        <button class="game-btn" onclick="checkSort()">Verificar</button>
+        <button class="game-btn" onclick="resetSort()" style="margin-top:0.5rem;background:rgba(255,255,255,0.07)">Reiniciar</button>
+        <div class="game-feedback" id="sortFeedback"></div>
+      </div>
+    </div>
+
+    <!-- GAME 2: Quiz -->
+    <div class="game-card quiz-game">
+      <div class="game-header">
+        <div class="game-icon" style="background:rgba(0,245,212,0.12)">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="11" stroke="#00F5D4" stroke-width="1.8" fill="rgba(0,245,212,0.08)"/><path d="M10 10c0-1.66 1.34-3 3-3s3 1.34 3 3c0 2-3 2.5-3 5" stroke="#00F5D4" stroke-width="1.8" stroke-linecap="round"/><circle cx="13" cy="20" r="1.2" fill="#00F5D4"/></svg>
+        </div>
+        <div>
+          <div class="game-name">Quiz del Agua</div>
+          <div class="game-tag">7 preguntas</div>
+        </div>
+      </div>
+      <div class="game-body" id="quizBody">
+        <div class="quiz-progress">
+          <span class="quiz-score">Puntaje: <span id="quizScore">0</span></span>
+          <span class="quiz-num">Pregunta <span id="qNum">1</span>/7</span>
+        </div>
+        <div class="quiz-bar"><div class="quiz-bar-fill" id="quizBar" style="width:14%"></div></div>
+        <div class="question" id="questionText"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-explain" id="quizExplain"></div>
+      </div>
+    </div>
+
+    <!-- GAME 3: Memory -->
+    <div class="game-card memory-game">
+      <div class="game-header">
+        <div class="game-icon" style="background:rgba(255,209,102,0.12)">
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect x="2" y="5" width="10" height="16" rx="2" stroke="#FFD166" stroke-width="1.8" fill="rgba(255,209,102,0.1)"/><rect x="14" y="5" width="10" height="16" rx="2" stroke="#FFD166" stroke-width="1.8" fill="rgba(255,209,102,0.1)"/><circle cx="7" cy="13" r="2.5" fill="rgba(255,209,102,0.3)" stroke="#FFD166" stroke-width="1.4"/><path d="M18 10h4M18 13h4M18 16h4" stroke="#FFD166" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div>
+          <div class="game-name">Memory del Agua</div>
+          <div class="game-tag">Encuentra los pares</div>
+        </div>
+      </div>
+      <div class="game-body">
+        <div class="mem-stats" style="margin-bottom:0.8rem">
+          <span>Movimientos: <span class="mem-highlight" id="memMoves">0</span></span>
+          <span>Pares: <span class="mem-highlight" id="memPairs">0</span>/8</span>
+        </div>
+        <div class="mem-grid" id="memGrid"></div>
+        <button class="game-btn" onclick="initMemory()" style="margin-top:0.5rem">Nueva partida</button>
+        <div class="game-feedback" id="memFeedback"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ACTIONS -->
+<section id="acciones">
+  <div class="actions-inner">
+    <div class="actions-intro">
+      <div class="fade-up">
+        <div class="section-tag">Toma acción</div>
+        <h2 class="section-title">Cada gota<br><em>cuenta</em></h2>
+        <p class="section-desc">
+          Pequeños cambios en tu rutina diaria tienen un impacto enorme. Aquí van 8 acciones que puedes comenzar hoy.
+        </p>
+      </div>
+      <div style="text-align:right" class="fade-up">
+        <p style="font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;color:var(--wave);line-height:1">
+          -20%
+        </p>
+        <p style="font-size:0.9rem;color:rgba(202,240,248,0.5)">de reducción posible en<br>el consumo doméstico</p>
+      </div>
+    </div>
+    <div class="actions-list stagger">
+      <div class="action-item">
+        <div class="action-num">01</div>
+        <div>
+          <h4>Repara fugas</h4>
+          <p>Un grifo goteando desperdicia hasta 30 litros por día.</p>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">02</div>
+        <div>
+          <h4>Duchas cortas</h4>
+          <p>Reducir 2 minutos ahorra más de 20 litros por ducha.</p>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">03</div>
+        <div>
+          <h4>Recoge agua de lluvia</h4>
+          <p>Úsala para regar plantas o limpiar exteriores.</p>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">04</div>
+        <div>
+          <h4>Lavadora llena</h4>
+          <p>Usa la lavadora a plena carga y en ciclo corto.</p>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">05</div>
+        <div>
+          <h4>Cierra el grifo</h4>
+          <p>Mientras te cepillas, afeitas o enjabonas las manos.</p>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">06</div>
+        <div>
+          <h4>Riego inteligente</h4>
+          <p>Riega al amanecer o al atardecer para reducir evaporación.</p>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">07</div>
+        <div>
+          <h4>Educa tu entorno</h4>
+          <p>Comparte información sobre la crisis del agua con otros.</p>
+        </div>
+      </div>
+      <div class="action-item">
+        <div class="action-num">08</div>
+        <div>
+          <h4>Apoya ONGs del agua</h4>
+          <p>Organizaciones como Water.org llevan agua a quien no tiene.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRANTES -->
+<section id="integrantes">
+  <div class="team-inner">
+    <div class="team-header fade-up">
+      <div class="section-tag">Proyecto Final · Comunicación</div>
+      <h2 class="section-title">Nuestro <em>Equipo</em></h2>
+      <p class="section-desc" style="margin:0 auto 0">Estudiantes comprometidos con concientizar sobre el cuidado del agua.</p>
+    </div>
+
+    <div class="team-grid stagger">
+
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="12" r="6" fill="rgba(0,180,216,0.25)" stroke="#00B4D8" stroke-width="1.8"/>
+            <path d="M4 28c0-6.627 5.373-10 12-10s12 3.373 12 10" stroke="#00B4D8" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="team-name">Loeza Pérez<br>Faustino</div>
+        <div class="team-role">Integrante</div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="12" r="6" fill="rgba(0,245,212,0.2)" stroke="#00F5D4" stroke-width="1.8"/>
+            <path d="M4 28c0-6.627 5.373-10 12-10s12 3.373 12 10" stroke="#00F5D4" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="team-name">Roblero Velázquez<br>Rosa Edilma</div>
+        <div class="team-role">Integrante</div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="12" r="6" fill="rgba(144,224,239,0.2)" stroke="#90E0EF" stroke-width="1.8"/>
+            <path d="M4 28c0-6.627 5.373-10 12-10s12 3.373 12 10" stroke="#90E0EF" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="team-name">Valencia Rodríguez<br>Alondra Sofia</div>
+        <div class="team-role">Integrante</div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="12" r="6" fill="rgba(0,180,216,0.25)" stroke="#00B4D8" stroke-width="1.8"/>
+            <path d="M4 28c0-6.627 5.373-10 12-10s12 3.373 12 10" stroke="#00B4D8" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="team-name">Keith Badal<br>Vázquez</div>
+        <div class="team-role">Integrante</div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-avatar">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="12" r="6" fill="rgba(0,245,212,0.2)" stroke="#00F5D4" stroke-width="1.8"/>
+            <path d="M4 28c0-6.627 5.373-10 12-10s12 3.373 12 10" stroke="#00F5D4" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="team-name">Daniela Rendón<br>Ventura</div>
+        <div class="team-role">Integrante</div>
+      </div>
+
+    </div>
+
+    <!-- Docente -->
+    <div class="docente-card fade-up">
+      <div class="docente-avatar">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none">
+          <circle cx="19" cy="14" r="7" fill="rgba(0,180,216,0.2)" stroke="#00B4D8" stroke-width="2"/>
+          <path d="M5 34c0-7.732 6.268-12 14-12s14 4.268 14 12" stroke="#00B4D8" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M26 4l6 4-6 4" stroke="#00F5D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M30 8H18" stroke="#00F5D4" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="docente-tag">Docente</div>
+        <div class="docente-name">Nallely Cupil Avalos</div>
+        <div class="docente-subject">Comunicación · Universidad UNID</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Proyecto Final <span>Comunicación</span></div>
+  <p class="footer-copy">Día Mundial del Agua · 22 de Marzo · ONU-Agua</p>
+  <p class="footer-copy" style="opacity:0.4">Datos: OMS/UNICEF JMP · FAO AQUASTAT · 2026</p>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>
