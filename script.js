@@ -257,12 +257,6 @@ const questions = [
     exp: "La ONU estableció el Día Mundial del Agua el 22 de marzo de 1993 mediante la resolución A/RES/47/193."
   },
   {
-    q: "¿Cuál es el tema del Día Mundial del Agua 2024?",
-    opts: ["Agua y cambio climático", "Agua para la Paz", "Agua y naturaleza", "Aguas subterráneas"],
-    ans: 1,
-    exp: "El tema 2024 es 'Agua para la Paz', destacando cómo el agua puede ser catalizadora de cooperación entre naciones."
-  },
-  {
     q: "¿Cuántos litros de agua se necesitan para producir 1 kg de carne de res?",
     opts: ["500 L", "2.000 L", "10.000 L", "15.000 L"],
     ans: 3,
