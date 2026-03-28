@@ -319,12 +319,14 @@ function showQuizResult() {
 }
 
 function initQuiz() {
+  const totalQuestions = questions.length;
+  const initialWidth = totalQuestions > 0 ? (100 / totalQuestions) : 0;
   document.getElementById('quizBody').innerHTML = `
     <div class="quiz-progress">
       <span class="quiz-score">Puntaje: <span id="quizScore">0</span></span>
-      <span class="quiz-num">Pregunta <span id="qNum">1</span>/7</span>
+      <span class="quiz-num">Pregunta <span id="qNum">1</span>/${totalQuestions}</span>
     </div>
-    <div class="quiz-bar"><div class="quiz-bar-fill" id="quizBar" style="width:14%"></div></div>
+    <div class="quiz-bar"><div class="quiz-bar-fill" id="quizBar" style="width:${initialWidth}%"></div></div>
     <div class="question" id="questionText"></div>
     <div class="quiz-options" id="quizOptions"></div>
     <div class="quiz-explain" id="quizExplain"></div>`;
